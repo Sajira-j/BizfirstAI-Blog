@@ -1,4 +1,4 @@
-/* ===== BizFirstAI Dark Theme ===== */
+/* ===== BizFirstAI Dark Theme - Green Gradient ===== */
 
 /* Override Bootstrap CSS Variables */
 :root {
@@ -6,14 +6,23 @@
     --bs-body-color: #E5E5E5 !important;
     --bs-body-bg-rgb: 11, 12, 16 !important;
     --bs-body-color-rgb: 229, 229, 229 !important;
-    --bs-link-color: #1AFF00 !important;
-    --bs-link-hover-color: #16E600 !important;
+    --bs-link-color: #00E600 !important;
+    --bs-link-hover-color: #00CC00 !important;
+
+    /* Green Theme Colors - Logo Matching */
+    --green-primary: #00E600;
+    --green-hover: #00CC00;
+    --green-light: #33FF33;
+    --green-border: #00AA00;
+    --green-dark: #006600;
 }
 
-/* Page background */
+/* Page background - Green-Touch Gradient */
 html, body {
-    background-color: #0B0C10 !important;
+    background: linear-gradient(135deg, #1a1a1a 0%, #0a2a0a 50%, #1a1a1a 100%) !important;
+    background-attachment: fixed !important;
     color: #E5E5E5 !important;
+    min-height: 100vh !important;
 }
 
 /* Container backgrounds */
@@ -23,14 +32,28 @@ html, body {
 
 /* Header */
 .header, header, nav, .navbar {
-    background-color: #111827 !important;
-    border-bottom: none !important;
+    background-color: #0a1a0a !important;
     color: #FFFFFF !important;
 }
 
 .header-nav-link,
 .header-nav-button {
     text-decoration: none !important;
+    color: #FFFFFF !important;
+}
+
+.header-nav-button svg {
+    fill: currentColor !important;
+}
+
+/* nav link/button hover background */
+.header-nav-link:hover,
+.header-nav-button:hover,
+.header-nav-link:active,
+.header-nav-link:focus,
+.header-nav-link.active {
+    color: #FFFFFF !important;
+    background-color: var(--green-hover) !important;
 }
 
 /* Header title and logo */
@@ -39,12 +62,35 @@ html, body {
 .navbar-brand,
 nav a {
     color: #FFFFFF !important;
+    font-size: 1.15rem !important;
+}
+
+/* prevent nav link color change on visited */
+.header-nav-link:visited {
+    color: #FFFFFF !important;
+    background-color: transparent !important;
+}
+
+/* keep active nav links with green background */
+.header-nav-link:active,
+.header-nav-link:focus-visible {
+    color: #FFFFFF !important;
+    background-color: var(--green-hover) !important;
 }
 
 .header a:hover,
 .navbar-brand:hover,
-nav a:hover {
-    color: #1AFF00 !important;
+nav a:hover,
+.header a:active,
+.header a:focus {
+    color: var(--green-light) !important;
+}
+
+/* Ensure header nav links don't turn white when active */
+.header-nav-link.active,
+.header-nav-link[aria-current="page"] {
+    color: #FFFFFF !important;
+    background-color: var(--green-hover) !important;
 }
 
 /* Navigation */
@@ -53,7 +99,7 @@ nav a:hover {
 }
 
 .nav a:hover {
-    color: #1AFF00 !important;
+    color: var(--green-primary) !important;
 }
 
 /* Cards and Posts */
@@ -70,48 +116,69 @@ nav a:hover {
 .card-body,
 .card-title,
 .card-text,
-.post-title,
-.post-content,
 .post-excerpt {
+    padding-top: 1rem !important;
     color: #E5E5E5 !important;
 }
 
 /* Footer */
 .footer, footer {
-    background-color: #111827 !important;
+    background: linear-gradient(135deg, #1a1a1a 0%, #0a2a0a 50%, #1a1a1a 100%) !important;
+    background-attachment: fixed !important;
     color: #E5E5E5 !important;
-    border-top: 2px solid #1AFF00 !important;
 }
 
 .footer a, footer a {
-    color: #1AFF00 !important;
+    color: var(--green-primary) !important;
 }
 
 .footer a:hover, footer a:hover {
-    color: #16E600 !important;
+    color: var(--green-light) !important;
 }
 
 /* Links */
 a {
-    color: #1AFF00 !important;
+    color: var(--green-primary) !important;
 }
 
 a:hover {
-    color: #16E600 !important;
+    color: var(--green-hover) !important;
+}
+
+/* Selection color */
+::selection {
+    background-color: rgba(0, 230, 0, 0.3) !important;
+    color: #FFFFFF !important;
+}
+
+::-moz-selection {
+    background-color: rgba(0, 230, 0, 0.3) !important;
+    color: #FFFFFF !important;
 }
 
 /* Buttons */
 .btn-primary,
 button.btn-primary {
-    background-color: #1AFF00 !important;
-    border-color: #1AFF00 !important;
+    background-color: var(--green-primary) !important;
+    border-color: var(--green-primary) !important;
     color: #0B0C10 !important;
+    font-weight: 600 !important;
 }
 
 .btn-primary:hover,
 button.btn-primary:hover {
-    background-color: #16E600 !important;
-    border-color: #16E600 !important;
+    background-color: var(--green-hover) !important;
+    border-color: var(--green-hover) !important;
+    color: #FFFFFF !important;
+}
+
+.btn-secondary {
+    background-color: var(--green-dark) !important;
+    border-color: var(--green-border) !important;
+}
+
+.btn-secondary:hover {
+    background-color: var(--green-border) !important;
 }
 
 /* Forms */
@@ -129,7 +196,8 @@ textarea:focus,
 select:focus,
 .form-control:focus {
     background-color: #2a2a2a !important;
-    border-color: #1AFF00 !important;
+    border-color: var(--green-primary) !important;
+    box-shadow: 0 0 0 0.2rem rgba(0, 230, 0, 0.25) !important;
     color: #E5E5E5 !important;
 }
 
@@ -142,14 +210,15 @@ select:focus,
 
 .pagination .page-link:hover {
     background-color: #2a2a2a !important;
-    border-color: #1AFF00 !important;
-    color: #1AFF00 !important;
+    border-color: var(--green-primary) !important;
+    color: var(--green-primary) !important;
 }
 
 .pagination .page-item.active .page-link {
-    background-color: #1AFF00 !important;
-    border-color: #1AFF00 !important;
+    background-color: var(--green-primary) !important;
+    border-color: var(--green-primary) !important;
     color: #0B0C10 !important;
+    font-weight: 600 !important;
 }
 
 /* Text colors */
@@ -166,19 +235,20 @@ p, span, div {
 .featured,
 .featured-post {
     background-color: #1F1F1F !important;
-    border: 1px solid #1AFF00 !important;
+    border: 2px solid var(--green-primary) !important;
+    box-shadow: 0 0 20px rgba(0, 230, 0, 0.3) !important;
 }
 
 /* Sidebar */
 .sidebar {
-    background-color: #1F1F1F !important;
-    border: 1px solid #2a2a2a !important;
+    background-color: rgba(10, 26, 10, 0.6) !important;
+    border: 1px solid var(--green-dark) !important;
 }
 
 /* Modal/Dialog */
 .modal-content {
-    background-color: #1F1F1F !important;
-    border: 1px solid #2a2a2a !important;
+    background-color: #1a1a1a !important;
+    border: 2px solid var(--green-border) !important;
     color: #E5E5E5 !important;
 }
 
@@ -188,4 +258,90 @@ p, span, div {
 
 .modal-footer {
     border-top-color: #2a2a2a !important;
+}
+
+/* login nickname text color */
+.header-nav-link.-login span {
+    color: #FFFFFF !important;
+}
+
+/* keep login button background transparent when dropdown is open */
+.header-nav-link.-login.show,
+.header-nav-link.-login[aria-expanded="true"] {
+    background-color: transparent !important;
+}
+
+.header-nav-link.-login.show span,
+.header-nav-link.-login[aria-expanded="true"] span {
+    color: #FFFFFF !important;
+}
+
+/* navigation dropdown background */
+.header-nav .dropdown-menu {
+    background-color: var(--green-dark) !important;
+    border: 1px solid var(--green-border) !important;
+}
+
+/* ensure dropdown item text is visible on dark background */
+.header-nav .dropdown-menu .dropdown-item {
+    color: #FFFFFF !important;
+}
+
+.header-nav .dropdown-menu .dropdown-item:hover,
+.header-nav .dropdown-menu .dropdown-item:focus {
+    background-color: var(--green-hover) !important;
+    color: #FFFFFF !important;
+}
+
+/* Code blocks and syntax highlighting */
+code,
+pre,
+.hljs {
+    background-color: #1F1F1F !important;
+    border: 1px solid var(--green-dark) !important;
+    color: var(--green-light) !important;
+}
+
+/* Badges and tags */
+.badge {
+    background-color: var(--green-primary) !important;
+    color: #0B0C10 !important;
+}
+
+/* Post category tags */
+.post-grid-cats-link,
+.post-meta-cats-link {
+    color: var(--green-light) !important;
+}
+
+.post-grid-cats-link:hover,
+.post-meta-cats-link:hover {
+    color: var(--green-primary) !important;
+}
+
+/* Border accents */
+hr {
+    opacity: 0.3 !important;
+}
+
+/* Post adjustments - reduce header height and justify content */
+.post-title {
+    margin-bottom: 1rem !important;
+}
+
+.post-meta {
+    margin-bottom: 1.5rem !important;
+}
+
+.post-content {
+    text-align: justify !important;
+}
+
+.post-container {
+    padding-top: 1rem !important;
+    padding-bottom: 1rem !important;
+}
+
+.post-cover {
+    height: 15rem !important;
 }

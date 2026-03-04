@@ -1,15 +1,22 @@
 // colors
-$blogifier: #7241fd;
+$blogifier: #00E600; // Logo green
 $default: #e1e5e9;
 $secondary: #8b949e;
 $gold: #ff9f2e;
 $black: #1c1c1c;
-$success: #00b45a;
+$success: #00E600; // Logo green
 $danger: #ff4d58;
 
+// Green theme colors - Logo matching
+$green-primary: #00E600;
+$green-hover: #00CC00;
+$green-light: #33FF33;
+$green-border: #00AA00;
+$green-dark: #006600;
+
 // colors
-$color: var(--bf-color);
-$color-hover: #888;
+$color: var(--bf-color, $green-primary);
+$color-hover: $green-hover;
 
 // brands colors
 $color-blogifier: #622aff;

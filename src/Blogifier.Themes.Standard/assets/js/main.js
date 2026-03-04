@@ -34,11 +34,11 @@ function subscribeNewsletter(url, data) {
   fetch(url, options)
     .then((response) => {
       if (response.status === 200) {
-        successNewsletter('Đăng ký nhận thông báo mới cho email này thành công!');
+        successNewsletter('Thank You ! You are subscribed!');
       } else if (response.status === 400) {
-        errorNewsletter('Email này đã tồn tại trong danh sách đăng ký.');
+        errorNewsletter('Email is already subscribed.');
       } else {
-        errorNewsletter('Lỗi không xác định.');
+        errorNewsletter('Oops Something went wrong.');
       }
     })
     .catch((err) => {

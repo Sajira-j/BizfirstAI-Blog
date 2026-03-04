@@ -9,7 +9,7 @@ body {
 /* Navbar */
 .navbar, nav {
     background-color: #111827 !important;
-    border-bottom: 2px solid #1AFF00;
+    border-bottom: 2px solid #b781e2;
 }
 
 .navbar a, nav a {
@@ -18,28 +18,28 @@ body {
 }
 
 .navbar a:hover, nav a:hover {
-    color: #1AFF00 !important;
+    color: #b781e2 !important;
 }
 
 /* Buttons */
 .btn-primary, button {
-    background-color: #1AFF00 !important;
+    background-color: #b781e2 !important;
     color: #0B0C10 !important;
     border: none;
     font-weight: bold;
 }
 
 .btn-primary:hover, button:hover {
-    background-color: #16E600 !important;
+    background-color: #5e0366 !important;
 }
 
 /* Links */
 a {
-    color: #1AFF00;
+    color: #b781e2;
 }
 
 a:hover {
-    color: #16E600;
+    color: #5e0366;
     text-decoration: underline;
 }
 
