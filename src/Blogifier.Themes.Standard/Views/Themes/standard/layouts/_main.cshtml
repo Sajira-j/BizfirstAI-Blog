@@ -12,23 +12,50 @@
   <link rel="canonical" href="@Model.Main.AbsoluteUrl" />
   <link rel="icon" type="image/png" href="~/img/favicon.png" />
   <link rel="shortcut icon" type="image/png" href="~/img/favicon.png" />
-  <!-- TODO: These variables comes from customfiedls -->
+  <!-- BizFirst AI Dark Theme Design Tokens -->
   <style>
     :root {
-      /* accent color - Logo Green */
-      --bf-color: #00E600;
-      /* header */
+      /* SURFACE TOKENS */
+      --surface-0: #0E1113;      /* Main app background */
+      --surface-1: #151A1E;      /* Cards / sections */
+      --surface-2: #1B2126;      /* Elevated surfaces (modals, dropdowns) */
+      --surface-3: #222A30;      /* Hovered surface */
+      --surface-border: #2A3238; /* Borders / dividers */
+
+      /* ACCENT TOKENS */
+      --accent-1: #1DB954;             /* Primary brand accent */
+      --accent-1-hover: #17A74A;
+      --accent-1-active: #148C3E;
+      --accent-1-soft: #163D2A;        /* Subtle background tint */
+      --accent-1-glow: rgba(29,185,84,0.25);
+
+      /* TEXT TOKENS */
+      --text-1: #E6EDF3;        /* Primary text */
+      --text-2: #9AA4AE;        /* Secondary text */
+      --text-3: #6B7680;        /* Disabled / muted text */
+      --text-on-accent: #0E1113;
+
+      /* STATUS TOKENS */
+      --status-success: #1DB954;
+      --status-warning: #F5A524;
+      --status-error: #E5484D;
+      --status-info: #3B82F6;
+
+      /* FOCUS & EFFECTS */
+      --focus-ring: 0 0 0 3px rgba(29,185,84,0.25);
+      --card-radius: 12px;
+      --button-radius: 8px;
+
+      /* Legacy compatibility */
+      --bf-color: var(--accent-1);
       --bf-header-title-size: 1.5rem;
       --bf-header-title-weight: 700;
-      --bf-header-title-color: #FFFFFF;
-      --bf-header-title-hover: #00E600;
-      /* logo */
+      --bf-header-title-color: var(--text-1);
+      --bf-header-title-hover: var(--accent-1);
       --bf-header-logo-width: auto;
       --bf-header-logo-height: 1.5rem;
-      /* post */
       --bf-post-width: 43.75rem;
-      /* radius */
-      --bf-radius: .5rem;
+      --bf-radius: var(--card-radius);
     }
   </style>
   <link rel="stylesheet" href="~/_content/@ThemesStandardConstant.AssemblyName/css/blogifier.css">

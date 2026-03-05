@@ -1,13 +1,15 @@
 .footer {
-  //border-top: 1px solid rgba(#000, 0.05);
   margin-top: 4rem;
-  color: #444;
+  padding-top: 2rem;
+  background-color: var(--surface-1, transparent);
+  color: var(--text-2, #444);
   font-size: 0.75rem;
   a {
-    color: #444;
+    color: var(--text-2, #444);
     text-decoration: none;
     &:hover {
       color: $color;
+      text-decoration: underline;
     }
   }
   p {

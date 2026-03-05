@@ -1,22 +1,48 @@
-// colors
-$blogifier: #00E600; // Logo green
-$default: #e1e5e9;
-$secondary: #8b949e;
-$gold: #ff9f2e;
-$black: #1c1c1c;
-$success: #00E600; // Logo green
-$danger: #ff4d58;
+// BizFirst AI Dark Theme - Semantic Tokens
+// Surface colors
+$surface-0: #0E1113;      // Main app background
+$surface-1: #151A1E;      // Cards / sections
+$surface-2: #1B2126;      // Elevated surfaces
+$surface-3: #222A30;      // Hovered surface
+$surface-border: #2A3238; // Borders / dividers
 
-// Green theme colors - Logo matching
-$green-primary: #00E600;
-$green-hover: #00CC00;
+// Accent colors
+$accent-1: #1DB954;       // Primary brand accent
+$accent-1-hover: #17A74A;
+$accent-1-active: #148C3E;
+$accent-1-soft: #163D2A;  // Subtle background tint
+
+// Text colors
+$text-1: #E6EDF3;         // Primary text
+$text-2: #9AA4AE;         // Secondary text
+$text-3: #6B7680;         // Disabled / muted text
+$text-on-accent: #0E1113;
+
+// Status colors
+$status-success: #1DB954;
+$status-warning: #F5A524;
+$status-error: #E5484D;
+$status-info: #3B82F6;
+
+// Legacy variable compatibility
+$blogifier: $accent-1;
+$default: $surface-border;
+$secondary: $text-2;
+$gold: $status-warning;
+$black: $surface-0;
+$success: $status-success;
+$danger: $status-error;
+
+// Green theme colors (legacy)
+$green-primary: $accent-1;
+$green-hover: $accent-1-hover;
 $green-light: #33FF33;
-$green-border: #00AA00;
-$green-dark: #006600;
+$green-border: $accent-1-active;
+$green-dark: $accent-1-soft;
 
-// colors
-$color: var(--bf-color, $green-primary);
-$color-hover: $green-hover;
+// Main colors
+$color: var(--bf-color, $accent-1);
+$color-hover: $accent-1-hover;
 
 // brands colors
 $color-blogifier: #622aff;

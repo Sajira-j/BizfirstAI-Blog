@@ -73,7 +73,7 @@
     letter-spacing: -1px;
     font-weight: 700;
     font-size: 2.75rem;
-    color: #000;
+    color: var(--text-1, #000);
   }
 
   &-meta {
@@ -81,7 +81,7 @@
     line-height: 1.4;
     font-size: 0.875rem;
     font-weight: 300;
-    color: #666;
+    color: var(--text-2, #666);
     white-space: nowrap;
     cursor: default;
 
@@ -192,8 +192,9 @@
   &-author {
     margin-bottom: 4rem;
     padding: 2rem;
-    border-radius: var(--bf-radius);
-    background-color: #0b5305;
+    border-radius: var(--card-radius, var(--bf-radius));
+    background-color: var(--surface-2, #0b5305);
+    border: 1px solid var(--surface-border, transparent);
     &-name {
       margin: 0 0 0.25rem;
       font-size: 1.125rem;
@@ -203,7 +204,7 @@
       margin-bottom: 0;
       font-size: 0.875rem;
       font-weight: 400;
-      color: #000;
+      color: var(--text-2, #000);
     }
     &-cover {
       margin: 0 1.5rem 0 0;

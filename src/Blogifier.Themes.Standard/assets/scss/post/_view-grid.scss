@@ -3,15 +3,15 @@
   position: relative;
   transition: box-shadow ease-in-out 0.3s;
   border-radius: $radius-var;
-  box-shadow: 0 0 0rem 1px rgba(#000, 0.05);
+  box-shadow: 0 0 0rem 1px var(--surface-border, rgba(#000, 0.05));
+  background-color: var(--surface-1, #fff);
   overflow: hidden;
-  padding-top: 5%;
+//  padding-top: 5%;
   // cover
   &-cover {
     display: block;
     margin: 0 0 1.5rem;
     position: relative;
-    border-bottom: 1px solid rgba(#000, 0.05);
   }
   &-img {
     min-width: 100%;
@@ -32,7 +32,7 @@
       text-decoration: none;
       font-size: 0.75rem;
       margin-right: 0.5rem;
-      color: #999;
+      color: var(--text-3, #999);
       &::before {
         content: "#";
         display: inline-block;
@@ -53,7 +53,7 @@
   }
 
   &-link {
-    color: #000;
+    color: var(--text-1, #000);
     transition: color ease-in-out 0.2s;
     text-decoration: none;
     &:hover {
@@ -74,7 +74,7 @@
   // desc
   &-desc {
     font-size: 0.875rem;
-    color: #777;
+    color: var(--text-2, #777);
     margin: 0;
     line-height: 1.75;
     transition: color ease-in-out 0.2s;
@@ -84,8 +84,7 @@
   // meta
   &-meta {
     font-size: 0.75rem;
-    color: #555;
-    border-top: 1px solid rgba(#000, 0.05);
+    color: var(--text-2, #555);
     // margin-bottom: 1.5rem;
     opacity: 0.7;
     padding: 1rem;
@@ -93,7 +92,7 @@
     position: relative;
     a {
       text-decoration: none;
-      color: #555;
+      color: var(--text-2, #555);
       &:hover,
       &:focus {
         color: $color;
@@ -145,13 +144,14 @@
 
   // hover item
   &:hover {
-    box-shadow: 0 0 10rem rgba(#000, 0.1);
-    border-color: #fff;
+    box-shadow: 0 0 2rem var(--accent-1-glow, rgba(#000, 0.1));
+    border-color: var(--accent-1, #fff);
+    background-color: var(--surface-2, #fff);
     .post-grid-link {
       color: $color;
     }
     .post-grid-desc {
-      color: #000;
+      color: var(--text-1, #ebeeea);
     }
     .post-grid-more {
     }
