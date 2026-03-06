@@ -173,6 +173,7 @@ public class AccountController(
         if (result.Succeeded)
         {
           await _signInManager.SignInAsync(user, isPersistent: true);
+          model.Success = "Profile updated successfully!";
         }
         else
         {

@@ -361,6 +361,7 @@ p, span, div {
 /* ensure dropdown item text is visible on dark background */
 .header-nav .dropdown-menu .dropdown-item {
     color: var(--text-1) !important;
+    font-size: 0.875rem !important;
 }
 
 .header-nav .dropdown-menu .dropdown-item:hover,

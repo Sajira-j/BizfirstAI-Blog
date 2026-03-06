@@ -5,6 +5,8 @@
 @inject IStringLocalizer<Resource> _localizer
 @inject CommonJsInterop _commonJsInterop
 
+@implements IDisposable
+
 @code {
 
   protected BlogifierClaims? _claims;
@@ -12,6 +14,9 @@
 
   protected override async Task OnInitializedAsync()
   {
+    // Subscribe to authentication state changes to refresh avatar when profile is updated
+    _stateProvider.AuthenticationStateChanged += OnAuthenticationStateChanged;
+
     var state = await _stateProvider.GetAuthenticationStateAsync();
     var identity = state.User.Identity;
     _claims = BlogifierClaims.Analysis(state.User);
@@ -23,6 +28,18 @@
     {
       await _commonJsInterop.SetTooltipAsync();
     }
+  }
+
+  private async void OnAuthenticationStateChanged(Task<AuthenticationState> task)
+  {
+    var state = await task;
+    _claims = BlogifierClaims.Analysis(state.User);
+    await InvokeAsync(StateHasChanged);
+  }
+
+  public void Dispose()
+  {
+    _stateProvider.AuthenticationStateChanged -= OnAuthenticationStateChanged;
   }
 }
 

@@ -5,6 +5,7 @@ namespace Blogifier.Shared;
 public class AccountProfileEditModel : AccountProfileModel
 {
   public string? Error { get; set; }
+  public string? Success { get; set; }
   [Required]
   [EmailAddress]
   public string? Email { get; set; } = default!;

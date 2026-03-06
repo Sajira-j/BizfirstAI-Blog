@@ -57,6 +57,7 @@ public class BlogifierClaims
         new Claim(BlogifierClaimTypes.Type, ((int)identity.Type).ToString()),
       };
       if (!string.IsNullOrEmpty(identity.Email)) claims.Add(new Claim(BlogifierClaimTypes.Email, identity.Email));
+      if (!string.IsNullOrEmpty(identity.Avatar)) claims.Add(new Claim(BlogifierClaimTypes.Avatar, identity.Avatar));
       return new ClaimsPrincipal(new ClaimsIdentity(claims, "identity"));
     }
     return new ClaimsPrincipal(new ClaimsIdentity());
