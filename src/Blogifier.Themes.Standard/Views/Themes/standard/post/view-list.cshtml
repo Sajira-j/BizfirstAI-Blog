@@ -17,7 +17,13 @@
           <div class="post-list-meta-item post-list-author">
             <img class="post-list-author-img" src="@PageHelper.CheckGetAvatarUrl(post.User.Avatar)" width="16" height="16"
                  alt="@post.User.NickName">
-            <span class="post-list-author-name">@post.User.NickName</span>
+            @* <span class="post-list-author-name">@post.User.NickName</span> *@
+            @{
+              var linkedInUrl = post.User.NickName.Contains("Binoy", StringComparison.OrdinalIgnoreCase)
+                ? "https://www.linkedin.com/in/binoyjose01/"
+                : "#";
+            }
+            <a class="post-list-author-name" href="@linkedInUrl" target="_blank" rel="noopener noreferrer" style="text-decoration: none; color: inherit;">@post.User.NickName</a>
           </div>
           <div class="post-list-meta-item post-list-date">
             <svg width="13" height="13" class="bi bi-calendar-event post-list-date-icon">

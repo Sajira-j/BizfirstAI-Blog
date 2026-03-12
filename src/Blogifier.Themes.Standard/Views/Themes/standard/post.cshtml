@@ -23,7 +23,13 @@
                alt="@Model.PostSlug.Post.User.NickName" aria-hidden="true" />
           <div class="post-meta-author-details">
             <span class="post-meta-label">@_localizer["author"]</span>
-            <a class="post-meta-author-name" href="#">@Model.PostSlug.Post.User.NickName</a>
+            @* <a class="post-meta-author-name" href="#">@Model.PostSlug.Post.User.NickName</a> *@
+            @{
+              var linkedInUrl = Model.PostSlug.Post.User.NickName.Contains("Binoy", StringComparison.OrdinalIgnoreCase)
+                ? "https://www.linkedin.com/in/binoyjose01/"
+                : "#";
+            }
+            <a class="post-meta-author-name" href="@linkedInUrl" target="_blank" rel="noopener noreferrer">@Model.PostSlug.Post.User.NickName</a>
           </div>
         </div>
         <div class="post-meta-item post-meta-date">

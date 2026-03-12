@@ -11,14 +11,18 @@
   </div>
 </div>
 
-<footer class="container py-2">
-  <partial name="../components/newsletter.cshtml" />
-  <section class="footer d-md-flex text-center text-md-start py-2 py-md-3 px-3">
-    <p>&copy; @DateTime.Now.Year - @Model.Main.Title</p>
-    <!-- <p class="ms-md-auto mt-2 mt-md-1">
-      @_localizer["powered-by"]
-       <a href="https://bizfirstai.com" rel="nofollow" target="_blank" title="@_localizer["BizFirstAi"] - @Model.Main.Version">@_localizer["BizFirstAi"]</a> 
-    </p>
-    -->
+<footer class="footer-wrapper">
+  <div class="container">
+    <partial name="../components/newsletter.cshtml" />
+  </div>
+  <section class="footer d-md-flex text-center text-md-start py-2 py-md-3">
+    <div class="container">
+      <p>&copy; @DateTime.Now.Year - @Model.Main.Title</p>
+      <!-- <p class="ms-md-auto mt-2 mt-md-1">
+        @_localizer["powered-by"]
+         <a href="https://bizfirstai.com" rel="nofollow" target="_blank" title="@_localizer["BizFirstAi"] - @Model.Main.Version">@_localizer["BizFirstAi"]</a>
+      </p>
+      -->
+    </div>
   </section>
 </footer>

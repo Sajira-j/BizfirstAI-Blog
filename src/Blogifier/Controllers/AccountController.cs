@@ -205,16 +205,30 @@ public class AccountController(
     if (ModelState.IsValid)
     {
       var userId = User.FirstUserId();
-      var user = await _userManager.FindByIdAsync(userId);
-      var token = await _userManager.GeneratePasswordResetTokenAsync(user);
-      var result = await _userManager.ResetPasswordAsync(user, token, model.Password);
-      if (result.Succeeded)
+
+      // Get the user using the base UserManager method to ensure proper tracking
+      var user = await _userManager.FindByNameAsync(User.Identity?.Name ?? "");
+
+      if (user != null && user.Id == userId)
       {
-        return await Logout();
+        // Change password using ChangePasswordAsync with current password validation
+        // If you don't have current password, use password reset flow
+        var token = await _userManager.GeneratePasswordResetTokenAsync(user);
+        var result = await _userManager.ResetPasswordAsync(user, token, model.Password);
+
+        if (result.Succeeded)
+        {
+          // Sign out the user after password change
+          return await Logout();
+        }
+        else
+        {
+          model.Error = result.Errors.FirstOrDefault()?.Description;
+        }
       }
       else
       {
-        model.Error = result.Errors.FirstOrDefault()?.Description;
+        model.Error = "User not found.";
       }
     }
     var data = await _blogManager.GetAsync();

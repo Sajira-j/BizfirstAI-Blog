@@ -33,7 +33,13 @@
                 <div class="featured-meta d-none d-md-flex">
                   <div class="featured-author">
                     <img class="featured-author-img" src="@PageHelper.CheckGetAvatarUrl(item.User.Avatar)" width="16" height="16" alt="@item.User.NickName">
-                    <span class="featured-author-name">@item.User.NickName</span>
+                    @* <span class="featured-author-name">@item.User.NickName</span> *@
+                    @{
+                      var linkedInUrl = item.User.NickName.Contains("Binoy", StringComparison.OrdinalIgnoreCase)
+                        ? "https://www.linkedin.com/in/binoyjose01/"
+                        : "#";
+                    }
+                    <a class="featured-author-name" href="@linkedInUrl" target="_blank" rel="noopener noreferrer" style="text-decoration: none; color: inherit;">@item.User.NickName</a>
                   </div>
                   <div class="featured-date">
                     <svg width="13" height="13" class="bi bi-calendar-event featured-date-icon">

@@ -3,31 +3,40 @@
 @model MainModel
 
 
-<nav class="header-nav d-flex">
-  <!-- Topics -->
-  @if (Model.Main.Categories.Any())
-  {
-    <div class="dropdown me-auto me-md-0">
-      <button class="header-nav-link" type="button" id="mainNav" data-bs-toggle="dropdown" aria-expanded="false">
-        <span class="me-1">@_localizer["categories"]</span>
-        <svg width="16" height="16" class="bi bi-chevron-down">
-          <use xlink:href="/_content/@ThemesStandardConstant.AssemblyName/img/icon-sprites.svg#categories"></use>
-        </svg>
-      </button>
-      <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="mainNav">
-        @{
-          var categoryUrl = Url.Content("~/category");
-          foreach (var item in Model.Main.Categories)
-          {
-            <li><a class="dropdown-item" href="@categoryUrl/@item.Category">@item.Category</a></li>
+<nav class="header-nav d-flex align-items-center">
+  <!-- Mobile Menu Toggle Button -->
+  <button class="mobile-menu-toggle header-nav-button ms-auto" type="button" aria-label="Toggle navigation" id="mobileMenuToggle">
+    <svg width="24" height="24" fill="currentColor" viewBox="0 0 16 16">
+      <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"/>
+    </svg>
+  </button>
+
+  <!-- Navigation Items (collapsible on mobile) -->
+  <div class="header-nav-items" id="headerNavItems">
+    <!-- Topics -->
+    @if (Model.Main.Categories.Any())
+    {
+      <div class="dropdown me-auto me-md-0">
+        <button class="header-nav-link" type="button" id="mainNav" data-bs-toggle="dropdown" aria-expanded="false">
+          <span class="me-1">@_localizer["categories"]</span>
+          <svg width="16" height="16" class="bi bi-chevron-down">
+            <use xlink:href="/_content/@ThemesStandardConstant.AssemblyName/img/icon-sprites.svg#categories"></use>
+          </svg>
+        </button>
+        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="mainNav">
+          @{
+            var categoryUrl = Url.Content("~/category");
+            foreach (var item in Model.Main.Categories)
+            {
+              <li><a class="dropdown-item" href="@categoryUrl/@item.Category">@item.Category</a></li>
+            }
           }
-        }
-      </ul>
-    </div>
-  }
-  <!--/Topics -->
-  <!-- Social -->
-  <ul class="social d-flex ms-2" aria-label="@_localizer["social-accounts"]">
+        </ul>
+      </div>
+    }
+    <!--/Topics -->
+    <!-- Social -->
+    <ul class="social d-flex ms-2" aria-label="@_localizer["social-accounts"]">
     <!-- <li>
       <a class="social-link-github header-nav-button" href="https://github.com/" target="_blank" aria-label="@_localizer["github"]">
         <svg width="16" height="16" class="bi bi-github">
@@ -35,83 +44,203 @@
         </svg>
       </a>
     </li> -->
-    <li>
+    <!-- Twitter - Removed as per user request -->
+    <!-- <li>
       <a class="social-link-twitter header-nav-button" href="https://twitter.com/" target="_blank" aria-label="@_localizer["twitter"]">
         <svg width="16" height="16" class="bi bi-twitter">
           <use xlink:href="/_content/@ThemesStandardConstant.AssemblyName/img/icon-sprites.svg#twitter"></use>
         </svg>
       </a>
-    </li>
-    <li>
+    </li> -->
+    <!-- Facebook - Removed as per user request -->
+    <!-- <li>
       <a class="social-link-facebook header-nav-button" href="https://facebook.com" target="_blank" aria-label="@_localizer["facebook"]">
         <svg width="16" height="16" class="bi bi-facebook">
           <use xlink:href="/_content/@ThemesStandardConstant.AssemblyName/img/icon-sprites.svg#facebook"></use>
         </svg>
       </a>
-    </li>
-    <li>
-      <a class="social-link-youtube header-nav-button" href="@("https://www.youtube.com/@bizfirstai")" target="_blank" aria-label="@_localizer["youtube"]">
-        <svg width="16" height="16" class="bi bi-youtube">
-          <use xlink:href="/_content/@ThemesStandardConstant.AssemblyName/img/icon-sprites.svg#youtube"></use>
-        </svg>
-      </a>
-    </li>
-    <li>
+    </li> -->
+      <li>
+        <a class="social-link-youtube header-nav-button" href="@("https://www.youtube.com/@bizfirstai")" target="_blank" aria-label="@_localizer["youtube"]">
+          <svg width="16" height="16" class="bi bi-youtube">
+            <use xlink:href="/_content/@ThemesStandardConstant.AssemblyName/img/icon-sprites.svg#youtube"></use>
+          </svg>
+        </a>
+      </li>
+      <li>
+        <a class="social-link-linkedin header-nav-button" href="https://www.linkedin.com/in/binoyjose01/" target="_blank" aria-label="@_localizer["linkedin"]">
+          <svg width="16" height="16" class="bi bi-linkedin">
+            <use xlink:href="/_content/@ThemesStandardConstant.AssemblyName/img/icon-sprites.svg#linkedin"></use>
+          </svg>
+        </a>
+      </li>
+      <li>
+        <a class="social-link-discord header-nav-button" href="https://discord.gg/4VqrsHnCuF" target="_blank" aria-label="@_localizer["discord"]">
+          <svg width="16" height="16" class="bi bi-discord">
+            <use xlink:href="/_content/@ThemesStandardConstant.AssemblyName/img/icon-sprites.svg#discord"></use>
+          </svg>
+        </a>
+      </li>
+      <li>
+        <a class="social-link-telegram header-nav-button" href="https://t.me/BizFirstAi" target="_blank" aria-label="@_localizer["telegram"]">
+          <svg width="16" height="16" class="bi bi-telegram">
+            <use xlink:href="/_content/@ThemesStandardConstant.AssemblyName/img/icon-sprites.svg#telegram"></use>
+          </svg>
+        </a>
+      </li>
+    <!-- Instagram - Removed as per user request -->
+    <!-- <li>
       <a class="social-link-instagram header-nav-button" href="https://instagram.com/" target="_blank" aria-label="@_localizer["instagram"]">
         <svg width="16" height="16" class="bi bi-instagram">
           <use xlink:href="/_content/@ThemesStandardConstant.AssemblyName/img/icon-sprites.svg#instagram"></use>
         </svg>
       </a>
-    </li>
-  </ul>
-  <!--/social -->
-  <!-- Home Link -->
-  <a class="header-nav-link ms-3" href="blog.bizfirstai.com" title="Home" aria-label="Home" target="_blank">
-    <span class="header-title">Home</span>
-  </a>
-  <!--/Home Link -->
-  <!-- Community Link -->
-  <a class="header-nav-link ms-1" href="https://community.bizfirstai.com" title="Community" aria-label="Community" target="_blank">
-    <span class="header-title">Community</span>
-  </a>
-  <!--/Community Link -->
-  <!-- Search button -->
-  <button aria-label="@_localizer["search"]" class="header-nav-button d-none d-md-block" type="button" data-bs-toggle="modal" data-bs-target="#searchModal">
-    <svg width="16" height="16" class="bi bi-search">
-      <use xlink:href="/_content/@ThemesStandardConstant.AssemblyName/img/icon-sprites.svg#search"></use>
-    </svg>
-  </button>
-  <!--/Search button -->
-  <!-- Admin Menu -->
-  @if (Model.Main.Claims != null)
-  {
-    <div class="dropdown">
-      <button class="header-nav-link -login ms-4" title="@_localizer["login"]" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Admin Menu - John">
-        <span class="me-1 d-none d-md-inline">@Model.Main.Claims.NickName</span>
-        <svg width="16" height="16" class="bi bi-chevron-down">
-          <use xlink:href="/_content/@ThemesStandardConstant.AssemblyName/img/icon-sprites.svg#chevron-down"></use>
-        </svg>
-      </button>
-      <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuButton">
-        <li><a class="dropdown-item" href="~/admin/">@_localizer["dashboard"]</a></li>
-        <li><a class="dropdown-item" href="~/admin/newsletter/">@_localizer["newsletter"]</a></li>
-        <li><a class="dropdown-item" href="~/admin/settings/">@_localizer["settings"]</a></li>
-        <li><a class="dropdown-item" href="~/admin/settings/customize/">@_localizer["customize"]</a></li>
-        <li><a class="dropdown-item" href="~/account/profile?redirecturi=@Model.Main.PathUrl">@_localizer["account-profile"]</a></li>
-        <li>
-          <hr class="dropdown-divider">
-        </li>
-        <li><a class="dropdown-item" href="~/account/logout">@_localizer["logout"]</a></li>
-      </ul>
-    </div>
-  }
-  else
-  {
-    <a class="header-nav-button -login ms-4" href="~/account" title="@_localizer["login"]" aria-label="@_localizer["login"]" role="button">
-      <svg width="20" height="20" class="bi bi-box-arrow-in-right">
-        <use xlink:href="/_content/@ThemesStandardConstant.AssemblyName/img/icon-sprites.svg#box-arrow-in-right"></use>
-      </svg>
+    </li> -->
+    </ul>
+    <!--/social -->
+    <!-- Home Link -->
+    @* <a class="header-nav-link ms-3" href="blog.bizfirstai.com" title="Home" aria-label="Home" target="_blank"> *@
+    <a class="header-nav-link ms-3" href="~/" title="Home" aria-label="Home">
+      <span class="header-title">Home</span>
     </a>
-  }
-  <!--/Admin Menu -->
+    <!--/Home Link -->
+    <!-- Community Link -->
+    <a class="header-nav-link ms-1" href="https://community.bizfirstai.com" title="Community" aria-label="Community" target="_blank">
+      <span class="header-title">Community</span>
+    </a>
+    <!--/Community Link -->
+    <!-- Search button -->
+    <button aria-label="@_localizer["search"]" class="header-nav-button" type="button" data-bs-toggle="modal" data-bs-target="#searchModal">
+      <svg width="16" height="16" class="bi bi-search">
+        <use xlink:href="/_content/@ThemesStandardConstant.AssemblyName/img/icon-sprites.svg#search"></use>
+      </svg>
+    </button>
+    <!--/Search button -->
+    <!-- Admin Menu -->
+    @if (Model.Main.Claims != null)
+    {
+      <div class="dropdown">
+        <button class="header-nav-link -login ms-4" title="@_localizer["login"]" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Admin Menu - John">
+          <span class="me-1 d-none d-md-inline">@Model.Main.Claims.NickName</span>
+          <svg width="16" height="16" class="bi bi-chevron-down">
+            <use xlink:href="/_content/@ThemesStandardConstant.AssemblyName/img/icon-sprites.svg#chevron-down"></use>
+          </svg>
+        </button>
+        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuButton">
+          <li><a class="dropdown-item" href="~/admin/">@_localizer["dashboard"]</a></li>
+          <li><a class="dropdown-item" href="~/admin/newsletter/">@_localizer["newsletter"]</a></li>
+          <li><a class="dropdown-item" href="~/admin/settings/">@_localizer["settings"]</a></li>
+          <li><a class="dropdown-item" href="~/admin/settings/customize/">@_localizer["customize"]</a></li>
+          <li><a class="dropdown-item" href="~/account/profile?redirecturi=@Model.Main.PathUrl">@_localizer["account-profile"]</a></li>
+          <li>
+            <hr class="dropdown-divider">
+          </li>
+          <li><a class="dropdown-item" href="~/account/logout">@_localizer["logout"]</a></li>
+        </ul>
+      </div>
+    }
+    else
+    {
+      <a class="header-nav-button -login ms-4" href="~/account" title="@_localizer["login"]" aria-label="@_localizer["login"]" role="button">
+        <svg width="20" height="20" class="bi bi-box-arrow-in-right">
+          <use xlink:href="/_content/@ThemesStandardConstant.AssemblyName/img/icon-sprites.svg#box-arrow-in-right"></use>
+        </svg>
+      </a>
+    }
+    <!--/Admin Menu -->
+  </div>
+  <!--/Navigation Items -->
 </nav>
+
+<script type="text/javascript">
+console.log('=== MOBILE MENU SCRIPT STARTED ===');
+
+// Immediate execution
+(function() {
+  'use strict';
+
+  function initMobileMenu() {
+    console.log('initMobileMenu called');
+    var toggle = document.getElementById('mobileMenuToggle');
+    var menu = document.getElementById('headerNavItems');
+
+    console.log('Toggle:', toggle);
+    console.log('Menu:', menu);
+
+    if (!toggle) {
+      console.error('Toggle button NOT FOUND!');
+      return;
+    }
+    if (!menu) {
+      console.error('Menu container NOT FOUND!');
+      return;
+    }
+
+    console.log('Both elements found! Attaching click handler...');
+
+    // Remove any existing click handlers
+    var newToggle = toggle.cloneNode(true);
+    toggle.parentNode.replaceChild(newToggle, toggle);
+    toggle = newToggle;
+
+    // Simple click handler
+    toggle.addEventListener('click', function(e) {
+      console.log('=== BUTTON CLICKED ===');
+      e.preventDefault();
+      e.stopPropagation();
+
+      var isActive = menu.classList.contains('active');
+      console.log('Menu is currently:', isActive ? 'ACTIVE' : 'INACTIVE');
+
+      if (isActive) {
+        menu.classList.remove('active');
+        console.log('Removed active class');
+      } else {
+        menu.classList.add('active');
+        console.log('Added active class');
+      }
+
+      console.log('New classes:', menu.className);
+    }, true);
+
+    // Click outside to close
+    document.addEventListener('click', function(e) {
+      if (!menu.contains(e.target) && !toggle.contains(e.target)) {
+        menu.classList.remove('active');
+      }
+    });
+
+    console.log('=== MOBILE MENU INITIALIZED SUCCESSFULLY ===');
+  }
+
+  // Try immediately
+  initMobileMenu();
+
+  // Try on DOMContentLoaded
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', function() {
+      console.log('DOMContentLoaded fired');
+      initMobileMenu();
+    });
+  }
+
+  // Try on window load as backup
+  window.addEventListener('load', function() {
+    console.log('Window load fired');
+    initMobileMenu();
+  });
+
+  // Try after delays as backup
+  setTimeout(function() {
+    console.log('Timeout 100ms');
+    initMobileMenu();
+  }, 100);
+
+  setTimeout(function() {
+    console.log('Timeout 500ms');
+    initMobileMenu();
+  }, 500);
+})();
+
+console.log('=== MOBILE MENU SCRIPT LOADED ===');
+</script>

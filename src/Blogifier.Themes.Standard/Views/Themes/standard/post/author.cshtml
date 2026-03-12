@@ -5,7 +5,13 @@
     <img class="post-author-img" width="96" height="96" src="@PageHelper.CheckGetAvatarUrl(Model.PostSlug.Post.User.Avatar)" alt="@Model.PostSlug.Post.User.NickName" />
   </figure>
   <div class="post-author-details">
-    <h5 class="post-author-name">@Model.PostSlug.Post.User.NickName</h5>
+    @* <h5 class="post-author-name">@Model.PostSlug.Post.User.NickName</h5> *@
+    @{
+      var linkedInUrl = Model.PostSlug.Post.User.NickName.Contains("Binoy", StringComparison.OrdinalIgnoreCase)
+        ? "https://www.linkedin.com/in/binoyjose01/"
+        : "#";
+    }
+    <h5 class="post-author-name"><a href="@linkedInUrl" target="_blank" rel="noopener noreferrer" style="text-decoration: none; color: inherit;">@Model.PostSlug.Post.User.NickName</a></h5>
     <p class="post-author-bio">@Model.PostSlug.Post.User.Bio</p>
   </div>
 </section>

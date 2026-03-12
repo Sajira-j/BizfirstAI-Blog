@@ -7,12 +7,6 @@
 
 ---
 
-## Related Documentation
-
-- **Complete Flow Explained:** `docs/newsletter_complete_flow_explained.md` - Detailed explanation of what happens when users subscribe and receive newsletters
-- **Critical Fixes Completed:** `docs/newsletter_critical_fixes_completed.md` - Summary of fixes applied and quick start guide
-- **Original Analysis:** `docs/newsletter_subscription_analysis_report.md` - Initial system analysis
-
 ## Table of Contents
 
 1. [Executive Summary](#executive-summary)
@@ -315,15 +309,28 @@ The Razor engine interprets `@bizfirstai` as a C# variable, causing compilation 
 error CS0103: The name 'bizfirstai' does not exist in the current context
 ```
 
-**Solution (Use Razor Expression):**
+**Solution Options:**
 
+**Option 1: Escape the @ symbol (Recommended)**
+```html
+<a class="social-link-youtube header-nav-button"
+   href="https://www.youtube.com/@@bizfirstai"
+   target="_blank">
+```
+
+**Option 2: Use Razor expression**
 ```html
 <a class="social-link-youtube header-nav-button"
    href="@("https://www.youtube.com/@bizfirstai")"
    target="_blank">
 ```
 
-**Why this works:** The `@(...)` syntax tells Razor to treat the entire string as a C# expression, outputting the URL exactly as written with the `@` symbol intact.
+**Option 3: Use HTML entity**
+```html
+<a class="social-link-youtube header-nav-button"
+   href="https://www.youtube.com/&#64;bizfirstai"
+   target="_blank">
+```
 
 **Action Steps:**
 1. Open `src/Blogifier.Themes.Standard/Views/Themes/standard/components/nav.cshtml`
@@ -460,7 +467,7 @@ dotnet run
 **Action Steps:**
 
 1. **Launch application and navigate to admin panel:**
-   - URL: `http://localhost:5000/admin` (or your configured port)
+   - URL: `http://localhost:5050/admin` (or your configured port)
    - Login with admin credentials
 
 2. **Navigate to Newsletter Settings:**
@@ -519,7 +526,7 @@ Enabled: ✓ (checked)
 **Action Steps:**
 
 1. **Navigate to public blog homepage:**
-   - URL: `http://localhost:5000`
+   - URL: `http://localhost:5050`
 
 2. **Locate newsletter subscription form:**
    - Usually in footer or sidebar

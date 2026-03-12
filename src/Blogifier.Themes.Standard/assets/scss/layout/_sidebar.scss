@@ -20,6 +20,7 @@
     text-align: left;
     padding: 0 1.5rem;
     background: none;
+    //border-top: 1px solid #f1f1f1;
     box-shadow: $bf-shadow;
     background-color: #fff;
     font-size: 0.876rem;
@@ -51,11 +52,18 @@
   .sidebar {
     width: 12rem;
     min-width: 12rem;
-    padding-right: 2rem;
+    /* padding-right: 2rem; */
+    padding-right: 3rem; /* Increased padding for better spacing */
+    padding-left: 1rem; /* Add internal padding inside sidebar */
 
     &-link {
       line-height: 2rem;
+      padding: 0.5rem 0; /* Add vertical padding to links */
     }
+  }
+  /* Add left padding to page-content for better spacing */
+  .page-content {
+    padding-left: 2rem;
   }
 }
 @media screen and (max-width: 991px) {

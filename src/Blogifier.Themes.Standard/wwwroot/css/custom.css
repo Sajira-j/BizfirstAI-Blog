@@ -1,5 +1,10 @@
 /* ===== BizFirstAI Dark Theme - Semantic Design System ===== */
 
+/* Global Font Family */
+* {
+    font-family: 'Montserrat', sans-serif !important;
+}
+
 /* Override Bootstrap CSS Variables */
 :root {
     /* Surface tokens */
@@ -60,6 +65,11 @@ main {
     background-color: transparent !important;
     min-height: calc(100vh - 200px);
     padding-top: 2rem !important;
+}
+
+/* Remove top padding for post detail page to eliminate gap */
+main.post-detail {
+    padding-top: 0 !important;
 }
 
 main > .container {
@@ -163,7 +173,50 @@ nav a:hover,
     color: var(--text-1) !important;
 }
 
+/* Account Page Logo (Login/Register) */
+.account-logo {
+    display: block !important;
+    margin: 0 auto 5rem !important;
+    transition: transform 0.3s ease, opacity 0.3s ease !important;
+}
+
+.account-logo img {
+    display: block !important;
+    width: 40px !important;
+    height: 40px !important;
+    object-fit: contain !important;
+}
+
+.account-logo:hover {
+    transform: scale(1.1) !important;
+    opacity: 0.8 !important;
+}
+
 /* Footer */
+.footer-wrapper {
+    width: 100% !important;
+    margin-top: 1.5rem !important;
+    padding: 0 !important;
+    background-color: var(--surface-1) !important;
+}
+
+.footer {
+    width: 100% !important;
+    margin: 0 !important;
+    padding-top: 1.5rem !important;
+    padding-bottom: 1.5rem !important;
+    background-color: var(--surface-1) !important;
+    color: var(--text-2) !important;
+    border-top: 1px solid var(--surface-border) !important;
+}
+
+.footer .container {
+    max-width: 1200px !important;
+    margin: 0 auto !important;
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
+}
+
 .footer, footer {
     background-color: var(--surface-1) !important;
     color: var(--text-2) !important;
@@ -175,6 +228,28 @@ nav a:hover,
 
 .footer a:hover, footer a:hover {
     color: var(--accent-1-hover) !important;
+}
+
+.footer p {
+    margin: 0 !important;
+    font-size: 0.875rem !important;
+}
+
+/* Mobile footer adjustments */
+@media (max-width: 767px) {
+    .footer-wrapper {
+        margin-top: 1rem !important;
+    }
+
+    .footer {
+        padding-top: 1.25rem !important;
+        padding-bottom: 1.25rem !important;
+    }
+
+    .footer .container {
+        padding-left: 1rem !important;
+        padding-right: 1rem !important;
+    }
 }
 
 /* Links */
@@ -257,6 +332,27 @@ textarea::placeholder {
     color: var(--text-3) !important;
 }
 
+/* Fix form-floating label overlap - hide placeholder in floating labels */
+.form-floating .form-control::placeholder,
+.form-floating input::placeholder,
+.form-floating textarea::placeholder {
+    opacity: 0 !important;
+    color: transparent !important;
+}
+
+/* Ensure label is always visible and properly positioned */
+.form-floating > label {
+    color: var(--text-2) !important;
+    opacity: 0.65 !important;
+}
+
+/* When input is focused or has value, label moves up */
+.form-floating > .form-control:focus ~ label,
+.form-floating > .form-control:not(:placeholder-shown) ~ label {
+    opacity: 1 !important;
+    color: var(--accent-1) !important;
+}
+
 /* Pagination */
 .pagination .page-link {
     background-color: var(--surface-1) !important;
@@ -335,6 +431,158 @@ p, span, div {
     background-color: rgba(14, 17, 19, 0.8) !important;
 }
 
+/* Share Modal Styling */
+.share-modal .modal-title {
+    color: var(--text-1) !important;
+    font-weight: 600 !important;
+}
+
+.share-modal-body {
+    padding: 1rem 0 !important;
+}
+
+.share-modal-list {
+    list-style: none !important;
+    padding: 0 !important;
+    margin: 0 0 1.5rem 0 !important;
+}
+
+.share-modal-link {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    padding: 1.25rem 0.75rem !important;
+    background-color: var(--surface-1) !important;
+    border: 1px solid var(--surface-border) !important;
+    border-radius: var(--button-radius) !important;
+    text-decoration: none !important;
+    transition: all 0.3s ease !important;
+    min-height: 100px !important;
+    gap: 0.5rem !important;
+}
+
+.share-modal-link:hover {
+    background-color: var(--surface-3) !important;
+    border-color: var(--accent-1) !important;
+    transform: translateY(-2px) !important;
+    box-shadow: 0 4px 12px rgba(29, 185, 84, 0.15) !important;
+}
+
+.share-modal-link-icon {
+    fill: var(--text-2) !important;
+    color: var(--text-2) !important;
+    margin-bottom: 0.5rem !important;
+}
+
+.share-modal-link:hover .share-modal-link-icon {
+    fill: var(--accent-1) !important;
+    color: var(--accent-1) !important;
+}
+
+.share-modal-link-label {
+    font-size: 0.875rem !important;
+    font-weight: 500 !important;
+    color: var(--text-1) !important;
+    text-align: center !important;
+}
+
+.share-modal-link:hover .share-modal-link-label {
+    color: var(--accent-1) !important;
+}
+
+/* Individual platform colors on hover */
+.share-modal-link.-linkedin:hover {
+    border-color: #0a66c2 !important;
+}
+
+.share-modal-link.-linkedin:hover .share-modal-link-icon,
+.share-modal-link.-linkedin:hover .share-modal-link-label {
+    fill: #0a66c2 !important;
+    color: #0a66c2 !important;
+}
+
+.share-modal-link.-telegram:hover {
+    border-color: #0088cc !important;
+}
+
+.share-modal-link.-telegram:hover .share-modal-link-icon,
+.share-modal-link.-telegram:hover .share-modal-link-label {
+    fill: #0088cc !important;
+    color: #0088cc !important;
+}
+
+.share-modal-link.-twitter:hover {
+    border-color: #1da1f2 !important;
+}
+
+.share-modal-link.-twitter:hover .share-modal-link-icon,
+.share-modal-link.-twitter:hover .share-modal-link-label {
+    fill: #1da1f2 !important;
+    color: #1da1f2 !important;
+}
+
+.share-modal-link.-whatsapp:hover {
+    border-color: #25d366 !important;
+}
+
+.share-modal-link.-whatsapp:hover .share-modal-link-icon,
+.share-modal-link.-whatsapp:hover .share-modal-link-label {
+    fill: #25d366 !important;
+    color: #25d366 !important;
+}
+
+.share-modal-link.-discord:hover {
+    border-color: #5865F2 !important;
+}
+
+.share-modal-link.-discord:hover .share-modal-link-icon,
+.share-modal-link.-discord:hover .share-modal-link-label {
+    fill: #5865F2 !important;
+    color: #5865F2 !important;
+}
+
+.share-modal-link.-email:hover {
+    border-color: var(--accent-1) !important;
+}
+
+/* Share link input */
+.share-modal-input {
+    width: 100% !important;
+    padding: 0.75rem 1rem !important;
+    background-color: var(--surface-1) !important;
+    border: 1px solid var(--surface-border) !important;
+    border-radius: var(--button-radius) !important;
+    color: var(--text-1) !important;
+    font-size: 0.875rem !important;
+    cursor: pointer !important;
+    transition: all 0.3s ease !important;
+}
+
+.share-modal-input:hover,
+.share-modal-input:focus {
+    background-color: var(--surface-2) !important;
+    border-color: var(--accent-1) !important;
+    outline: none !important;
+}
+
+/* Mobile responsive for share modal */
+@media (max-width: 767px) {
+    .share-modal-link {
+        padding: 1rem 0.5rem !important;
+        min-height: 90px !important;
+    }
+
+    .share-modal-link-icon {
+        width: 20px !important;
+        height: 20px !important;
+    }
+
+    .share-modal-link-label {
+        font-size: 0.75rem !important;
+    }
+}
+
 /* login nickname text color */
 .header-nav-link.-login span {
     color: var(--text-1) !important;
@@ -373,6 +621,92 @@ p, span, div {
 /* Remove dropdown divider line */
 .dropdown-divider {
     display: none !important;
+}
+
+/* Post Navigation (Next/Previous Posts) */
+.post-nav {
+    margin: 2rem 0 3rem 0 !important;
+    padding: 0 1rem !important;
+}
+
+.post-nav > div {
+    gap: 1.5rem !important;
+    width: 100% !important;
+}
+
+.post-nav .col {
+    flex: 1 !important;
+    padding: 0 !important;
+}
+
+.post-nav-item {
+    display: block !important;
+    padding: 1.25rem 1.5rem !important;
+    background-color: var(--surface-1) !important;
+    border: 1px solid var(--surface-border) !important;
+    border-radius: var(--button-radius) !important;
+    text-decoration: none !important;
+    transition: all 0.3s ease !important;
+    min-height: 100px !important;
+}
+
+.post-nav-item:hover {
+    background-color: var(--surface-2) !important;
+    border-color: var(--accent-1) !important;
+    transform: translateY(-2px) !important;
+    box-shadow: 0 4px 12px rgba(29, 185, 84, 0.15) !important;
+}
+
+.post-nav-text {
+    display: block !important;
+    font-size: 0.75rem !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.5px !important;
+    color: var(--text-2) !important;
+    margin-bottom: 0.5rem !important;
+    font-weight: 600 !important;
+}
+
+.post-nav-title {
+    font-size: 1rem !important;
+    font-weight: 600 !important;
+    color: var(--text-1) !important;
+    line-height: 1.4 !important;
+    margin: 0 !important;
+    display: -webkit-box !important;
+    -webkit-line-clamp: 2 !important;
+    -webkit-box-orient: vertical !important;
+    overflow: hidden !important;
+}
+
+.post-nav-item:hover .post-nav-title {
+    color: var(--accent-1) !important;
+}
+
+.post-nav-item:hover .post-nav-text {
+    color: var(--accent-1) !important;
+}
+
+/* Mobile responsive for post navigation */
+@media (max-width: 767px) {
+    .post-nav {
+        margin: 1.5rem 0 2rem 0 !important;
+        padding: 0 0.5rem !important;
+    }
+
+    .post-nav > div {
+        flex-direction: column !important;
+        gap: 1rem !important;
+    }
+
+    .post-nav-item {
+        padding: 1rem 1.25rem !important;
+        min-height: 80px !important;
+    }
+
+    .post-nav-title {
+        font-size: 0.9rem !important;
+    }
 }
 
 /* Code blocks and syntax highlighting */
@@ -435,10 +769,54 @@ hr {
     color: var(--text-2) !important;
 }
 
+/* Share button - make icon white */
+.post-meta-btn .bi,
+.post-meta-btn svg {
+    fill: var(--text-1) !important;
+    color: var(--text-1) !important;
+}
+
+.post-meta-btn:hover .bi,
+.post-meta-btn:hover svg {
+    fill: var(--accent-1) !important;
+    color: var(--accent-1) !important;
+}
+
 .post-content {
     text-align: justify !important;
     color: var(--text-1) !important;
     line-height: 1.7 !important;
+}
+
+/* Reduce heading sizes and remove justification in post content */
+.post-content h1 {
+    font-size: 1.75rem !important;
+    text-align: left !important;
+}
+
+.post-content h2 {
+    font-size: 1.5rem !important;
+    text-align: left !important;
+}
+
+.post-content h3 {
+    font-size: 1.25rem !important;
+    text-align: left !important;
+}
+
+.post-content h4 {
+    font-size: 1.125rem !important;
+    text-align: left !important;
+}
+
+.post-content h5 {
+    font-size: 1rem !important;
+    text-align: left !important;
+}
+
+.post-content h6 {
+    font-size: 0.875rem !important;
+    text-align: left !important;
 }
 
 .post-container {
@@ -446,8 +824,20 @@ hr {
     padding-bottom: 1rem !important;
 }
 
+/* Post detail page - article styling */
+.post-detail .post {
+    margin-top: 0 !important;
+    padding-top: 0 !important;
+}
+
 .post-cover {
     height: 15rem !important;
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+}
+
+.post-header.post-container {
+    padding-top: 1.5rem !important;
 }
 
 .post-author {
@@ -495,4 +885,342 @@ hr {
 *:focus-visible {
     outline: 2px solid var(--accent-1) !important;
     outline-offset: 2px !important;
+}
+
+/* ===== MOBILE RESPONSIVE HEADER ===== */
+
+/* Header responsive adjustments */
+.header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background-color: var(--surface-1) !important;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+.header .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: nowrap;
+    padding: 0.75rem 1rem;
+}
+
+/* Logo section */
+.header-sign {
+    padding: 0 !important;
+    margin: 0 !important;
+}
+
+.header-logo {
+    display: flex !important;
+    align-items: center;
+    text-decoration: none;
+}
+
+.header-logo-img {
+    height: 36px !important;
+    width: auto;
+}
+
+/* Mobile menu toggle button */
+.mobile-menu-toggle {
+    display: none !important;
+    background: transparent !important;
+    border: none !important;
+    color: var(--text-1) !important;
+    cursor: pointer !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    margin-left: auto !important;
+    z-index: 1001 !important;
+    width: 40px !important;
+    height: 40px !important;
+    min-width: 40px !important;
+    min-height: 40px !important;
+    align-items: center !important;
+    justify-content: center !important;
+    border-radius: 8px !important;
+    flex-shrink: 0 !important;
+    position: relative !important;
+}
+
+/* Center the SVG icon inside hamburger button */
+.mobile-menu-toggle svg {
+    display: block !important;
+    margin: 0 auto !important;
+    width: 20px !important;
+    height: 20px !important;
+    position: absolute !important;
+    top: 50% !important;
+    left: 50% !important;
+    transform: translate(-50%, -50%) !important;
+}
+
+.mobile-menu-toggle:hover {
+    background-color: var(--accent-1-soft) !important;
+}
+
+.mobile-menu-toggle:active {
+    background-color: var(--surface-3) !important;
+}
+
+/* Show hamburger button only on mobile */
+@media (max-width: 767px) {
+    .mobile-menu-toggle {
+        display: flex !important;
+    }
+
+    /* Fix header spacing on mobile */
+    .header .container {
+        padding: 0.75rem 0.75rem !important;
+        width: 100% !important;
+        max-width: 100% !important;
+    }
+
+    /* Ensure header nav uses proper alignment */
+    .header-nav,
+    nav.header-nav {
+        display: flex !important;
+        align-items: center !important;
+        width: 100% !important;
+        margin-left: auto !important;
+    }
+}
+
+/* Navigation items container */
+.header-nav-items {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+}
+
+/* Desktop: Show all items inline */
+@media (min-width: 768px) {
+    .mobile-menu-toggle {
+        display: none !important;
+    }
+
+    .header-nav-items {
+        display: flex !important;
+        flex-direction: row;
+        position: static;
+        background: transparent;
+        box-shadow: none;
+        padding: 0;
+        gap: 0.25rem;
+    }
+}
+
+/* Mobile: Hamburger menu and collapsible navigation */
+@media (max-width: 767px) {
+    .mobile-menu-toggle {
+        display: block !important;
+        z-index: 1001;
+        position: relative;
+    }
+
+    /* Hide menu by default on mobile */
+    nav.header-nav .header-nav-items,
+    .header-nav .header-nav-items,
+    #headerNavItems {
+        display: none !important;
+        position: fixed !important;
+        top: 60px !important;
+        right: 0 !important;
+        bottom: 0 !important;
+        width: 280px !important;
+        max-height: calc(100vh - 60px) !important;
+        background-color: var(--surface-2) !important;
+        box-shadow: -2px 0 10px rgba(0, 0, 0, 0.5) !important;
+        flex-direction: column !important;
+        align-items: stretch !important;
+        padding: 0.75rem !important;
+        gap: 0.25rem !important;
+        overflow-y: auto !important;
+        overflow-x: hidden !important;
+        z-index: 999 !important;
+        opacity: 0 !important;
+        transform: translateX(100%) !important;
+        transition: opacity 0.3s ease, transform 0.3s ease !important;
+        pointer-events: none !important;
+    }
+
+    /* Show menu when active */
+    nav.header-nav .header-nav-items.active,
+    .header-nav .header-nav-items.active,
+    #headerNavItems.active {
+        display: flex !important;
+        opacity: 1 !important;
+        transform: translateX(0) !important;
+        visibility: visible !important;
+        pointer-events: auto !important;
+    }
+
+    /* Categories dropdown in mobile */
+    .header-nav-items .dropdown {
+        width: 100%;
+        margin: 0 !important;
+        position: relative !important;
+    }
+
+    .header-nav-items .header-nav-link {
+        width: 100%;
+        justify-content: flex-start;
+        padding: 0.5rem 1rem !important;
+        margin: 0 !important;
+        display: flex !important;
+        align-items: center;
+        cursor: pointer !important;
+        pointer-events: auto !important;
+        min-height: 40px !important;
+        font-size: 0.9rem !important;
+    }
+
+    .header-nav-items .dropdown-menu {
+        position: relative !important;
+        width: 100% !important;
+        margin: 0 !important;
+        margin-top: 0 !important;
+        border: none !important;
+        box-shadow: none !important;
+        padding: 0 !important;
+        padding-left: 1rem !important;
+    }
+
+    .header-nav-items .dropdown-item {
+        padding: 0.5rem 1rem !important;
+        cursor: pointer !important;
+        pointer-events: auto !important;
+    }
+
+    .header-nav-items .dropdown-item:first-child {
+        margin-top: 0 !important;
+        padding-top: 0.35rem !important;
+    }
+
+    /* Remove extra spacing from dropdown menu list items */
+    .header-nav-items .dropdown-menu li:first-child {
+        margin-top: 0 !important;
+    }
+
+    /* Social icons in mobile - stack vertically or wrap */
+    .header-nav-items .social {
+        flex-wrap: wrap;
+        justify-content: flex-start;
+        gap: 0.35rem;
+        margin: 0 !important;
+        padding: 0.4rem 0;
+        border-top: 1px solid var(--surface-border);
+        border-bottom: 1px solid var(--surface-border);
+        list-style: none;
+    }
+
+    .header-nav-items .social li {
+        margin: 0 !important;
+    }
+
+    .header-nav-items .social a {
+        pointer-events: auto !important;
+        cursor: pointer !important;
+        display: flex !important;
+        align-items: center;
+        justify-content: center;
+        min-height: 44px;
+        min-width: 44px;
+    }
+
+    /* Home and Community links in mobile */
+    .header-nav-items > a,
+    .header-nav-items > a.header-nav-link {
+        width: 100%;
+        padding: 0.5rem 1rem !important;
+        margin: 0 !important;
+        display: flex !important;
+        cursor: pointer !important;
+        pointer-events: auto !important;
+        min-height: 40px !important;
+        text-decoration: none !important;
+        font-size: 0.9rem !important;
+    }
+
+    .header-nav-items .header-title {
+        font-size: 0.9rem !important;
+    }
+
+    /* Search button in mobile */
+    .header-nav-items .header-nav-button,
+    .header-nav-items button {
+        width: 100%;
+        justify-content: flex-start;
+        padding: 0.5rem 1rem !important;
+        margin: 0 !important;
+        text-align: left;
+        cursor: pointer !important;
+        pointer-events: auto !important;
+        min-height: 40px !important;
+        display: flex !important;
+        align-items: center;
+        font-size: 0.9rem !important;
+    }
+
+    /* Admin menu in mobile */
+    .header-nav-items .dropdown .header-nav-link {
+        width: 100%;
+    }
+
+    .header-nav-items .-login {
+        width: 100%;
+    }
+
+    .header-nav-items .-login::after {
+        display: none !important;
+    }
+
+    /* Ensure all clickable elements work */
+    .header-nav-items * {
+        pointer-events: auto !important;
+    }
+
+    .header-nav-items a,
+    .header-nav-items button {
+        cursor: pointer !important;
+        -webkit-tap-highlight-color: rgba(29, 185, 84, 0.3);
+    }
+}
+
+/* Mobile menu backdrop */
+@media (max-width: 767px) {
+    /* Backdrop overlay when menu is open */
+    .header-nav-items.active::before {
+        content: '';
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 280px;
+        bottom: 0;
+        background-color: rgba(0, 0, 0, 0.5);
+        z-index: 998;
+        backdrop-filter: blur(2px);
+    }
+}
+
+/* Tablet adjustments (768px - 991px) */
+@media (min-width: 768px) and (max-width: 991px) {
+    .header .container {
+        padding: 0.75rem 1.5rem;
+    }
+
+    .header-nav-items {
+        gap: 0.15rem;
+    }
+
+    .header-nav-link {
+        padding: 0 0.75rem !important;
+        font-size: 0.9rem !important;
+    }
+
+    .header-title {
+        font-size: 0.9rem !important;
+    }
 }

@@ -12,7 +12,48 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" type="image/png" href="~/img/favicon.png" />
   <link rel="shortcut icon" type="image/png" href="~/img/favicon.png" />
-  <!-- TODO: These variables comes from customfiedls -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <!-- BizFirst AI Dark Theme Design Tokens -->
+  <style>
+    :root {
+      /* SURFACE TOKENS */
+      --surface-0: #0E1113;      /* Main app background */
+      --surface-1: #151A1E;      /* Cards / sections */
+      --surface-2: #1B2126;      /* Elevated surfaces (modals, dropdowns) */
+      --surface-3: #222A30;      /* Hovered surface */
+      --surface-border: #2A3238; /* Borders / dividers */
+
+      /* ACCENT TOKENS */
+      --accent-1: #1DB954;             /* Primary brand accent */
+      --accent-1-hover: #17A74A;
+      --accent-1-active: #148C3E;
+      --accent-1-soft: #163D2A;        /* Subtle background tint */
+      --accent-1-glow: rgba(29,185,84,0.25);
+
+      /* TEXT TOKENS */
+      --text-1: #E6EDF3;        /* Primary text */
+      --text-2: #9AA4AE;        /* Secondary text */
+      --text-3: #6B7680;        /* Disabled / muted text */
+      --text-on-accent: #0E1113;
+
+      /* STATUS TOKENS */
+      --status-success: #1DB954;
+      --status-warning: #F5A524;
+      --status-error: #E5484D;
+      --status-info: #3B82F6;
+
+      /* FOCUS & EFFECTS */
+      --focus-ring: 0 0 0 3px rgba(29,185,84,0.25);
+      --card-radius: 12px;
+      --button-radius: 8px;
+
+      /* Legacy compatibility */
+      --bf-color: var(--accent-1);
+      --bf-radius: var(--card-radius);
+    }
+  </style>
   <link rel="stylesheet" href="~/_content/@ThemesStandardConstant.AssemblyName/css/blogifier.css">
   <link rel="stylesheet" href="~/_content/@ThemesStandardConstant.AssemblyName/css/custom.css">
   <link rel="stylesheet" href="~/_content/@ThemesStandardConstant.AssemblyName/css/account.css">
@@ -27,10 +68,8 @@
       </svg>
     </a>
     <div class="account">
-      <a class="account-logo link-blogifier" href="http://blogifier.net/" target="_blank" rel="nofollow external" data-bs-toggle="tooltip" title="@_localizer["powered-by-blogifier"]">
-        <svg width="40" height="40">
-          <use xlink:href="/_content/@ThemesStandardConstant.AssemblyName/img/icon-sprites.svg#logo"></use>
-        </svg>
+      <a class="account-logo link-bizfirstai" href="https://bizfirstai.com/" target="_blank" rel="nofollow external" data-bs-toggle="tooltip" title="Powered by BizFirstAI">
+        <img src="~/img/favicon.png" alt="BizFirstAI Logo" width="40" height="40" />
       </a>
       @RenderBody()
     </div>

@@ -2,9 +2,12 @@
 
 @{
   var postSlug = Model.Main.AbsoluteUrl + "/post/" + Model.PostSlug.Post.Slug;
-  var share_facebook = "https://www.facebook.com/sharer/sharer.php?u=" + postSlug;
-  var share_twitter = "https://twitter.com/intent/tweet?text=" + Model.PostSlug.Post.Title + "&url=" + postSlug;
-  var share_email = "mailto:?&subject=" + Model.PostSlug.Post.Title + "&cc=&bcc=&body=" + Model.PostSlug.Post.Title + "%0" + postSlug;
+  var postTitle = System.Net.WebUtility.UrlEncode(Model.PostSlug.Post.Title);
+  var share_linkedin = "https://www.linkedin.com/sharing/share-offsite/?url=" + postSlug;
+  var share_telegram = "https://t.me/share/url?url=" + postSlug + "&text=" + postTitle;
+  var share_twitter = "https://twitter.com/intent/tweet?text=" + postTitle + "&url=" + postSlug;
+  var share_whatsapp = "https://wa.me/?text=" + postTitle + "%20" + postSlug;
+  var share_email = "mailto:?&subject=" + Model.PostSlug.Post.Title + "&cc=&bcc=&body=" + Model.PostSlug.Post.Title + "%0A" + postSlug;
 }
 
 <div class="modal fade share-modal" id="shareModal" tabindex="-1" aria-labelledby="shareModalLabel" aria-hidden="true">
@@ -16,25 +19,49 @@
       </div>
       <div class="modal-body share-modal-body">
         <ul class="share-modal-list row g-3">
-          <li class="col">
-            <a class="share-modal-link -facebook" href="@share_facebook" target="_blank">
-              <svg width="16" height="16" class="bi bi-facebook share-modal-link-icon">
-                <use xlink:href="/_content/@ThemesStandardConstant.AssemblyName/img/icon-sprites.svg#github"></use>
+          <li class="col-6 col-md-4">
+            <a class="share-modal-link -linkedin" href="@share_linkedin" target="_blank" rel="noopener noreferrer">
+              <svg width="24" height="24" class="bi bi-linkedin share-modal-link-icon">
+                <use xlink:href="/_content/@ThemesStandardConstant.AssemblyName/img/icon-sprites.svg#linkedin"></use>
               </svg>
-              <span class="share-modal-link-label">Facebook</span>
+              <span class="share-modal-link-label">LinkedIn</span>
             </a>
           </li>
-          <li class="col bft-share-item">
-            <a class="share-modal-link -twitter" href="@share_twitter" target="_blank">
-              <svg width="16" height="16" class="bi bi-twitter share-modal-link-icon">
+          <li class="col-6 col-md-4">
+            <a class="share-modal-link -telegram" href="@share_telegram" target="_blank" rel="noopener noreferrer">
+              <svg width="24" height="24" class="bi bi-telegram share-modal-link-icon">
+                <use xlink:href="/_content/@ThemesStandardConstant.AssemblyName/img/icon-sprites.svg#telegram"></use>
+              </svg>
+              <span class="share-modal-link-label">Telegram</span>
+            </a>
+          </li>
+          <li class="col-6 col-md-4">
+            <a class="share-modal-link -twitter" href="@share_twitter" target="_blank" rel="noopener noreferrer">
+              <svg width="24" height="24" class="bi bi-twitter share-modal-link-icon">
                 <use xlink:href="/_content/@ThemesStandardConstant.AssemblyName/img/icon-sprites.svg#twitter"></use>
               </svg>
-              <span class="share-modal-link-label">Twitter</span>
+              <span class="share-modal-link-label">Twitter / X</span>
             </a>
           </li>
-          <li class="col bft-share-item">
-            <a class="share-modal-link" href="@share_email" target="_blank">
-              <svg width="16" height="16" class="bi bi-envelope-fill share-modal-link-icon">
+          <li class="col-6 col-md-4">
+            <a class="share-modal-link -whatsapp" href="@share_whatsapp" target="_blank" rel="noopener noreferrer">
+              <svg width="24" height="24" class="bi bi-whatsapp share-modal-link-icon">
+                <use xlink:href="/_content/@ThemesStandardConstant.AssemblyName/img/icon-sprites.svg#whatsapp"></use>
+              </svg>
+              <span class="share-modal-link-label">WhatsApp</span>
+            </a>
+          </li>
+          <li class="col-6 col-md-4">
+            <a class="share-modal-link -discord" href="https://discord.gg/4VqrsHnCuF" target="_blank" rel="noopener noreferrer">
+              <svg width="24" height="24" class="bi bi-discord share-modal-link-icon">
+                <use xlink:href="/_content/@ThemesStandardConstant.AssemblyName/img/icon-sprites.svg#discord"></use>
+              </svg>
+              <span class="share-modal-link-label">Discord</span>
+            </a>
+          </li>
+          <li class="col-6 col-md-4">
+            <a class="share-modal-link -email" href="@share_email">
+              <svg width="24" height="24" class="bi bi-envelope-fill share-modal-link-icon">
                 <use xlink:href="/_content/@ThemesStandardConstant.AssemblyName/img/icon-sprites.svg#bi-envelope-fill"></use>
               </svg>
               <span class="share-modal-link-label">Email</span>
